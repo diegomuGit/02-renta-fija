@@ -156,7 +156,7 @@ def calcular_valor_presente(
         
         for fecha_flujo, monto_flujo in flujos_caja:
             # FILTRAR: Solo descontar flujos FUTUROS (>= fecha de valoración)
-            if fecha_flujo < fecha_valoracion:
+            if fecha_flujo <= fecha_valoracion:
                 continue  # Saltar flujos pasados
             
             # Obtener factor de descuento de la curva (interpolado si es necesario)
@@ -190,7 +190,7 @@ def calcular_valor_presente(
             
             for fecha_flujo, monto_flujo in flujos_caja:
                 # FILTRAR: Solo descontar flujos FUTUROS (>= fecha de valoración)
-                if fecha_flujo < fecha_valoracion:
+                if fecha_flujo <= fecha_valoracion:
                     continue  # Saltar flujos pasados
                 
                 # Calcular tiempo en años (ACT/365)
